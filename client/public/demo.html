@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <title>Construction ERP - Modern Theme Demo</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            },
+          }
+        }
+      }
+
+      // Module content data
+      const moduleContent = {
+        dashboard: {
+          title: 'Dashboard',
+          content: document.getElementById('dashboard-content')
+        },
+        technical_office: {
+          title: 'Technical Office',
+          content: `
+            <div class="space-y-6">
+              <div class="bg-white p-6 rounded-lg border border-gray-100 shadow-sm">
+                <h3 class="text-lg font-semibold mb-4">Technical Documents</h3>
+                <div class="space-y-4">
+                  <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                    <div class="flex items-center space-x-4">
+                      <svg class="w-6 h-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                      <span class="text-sm font-medium">Project Specifications.pdf</span>
+                    </div>
+                    <button class="px-3 py-1 text-sm text-black bg-white border border-gray-200 rounded-lg hover:bg-gray-50">View</button>
+                  </div>
+                  <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                    <div class="flex items-center space-x-4">
+                      <svg class="w-6 h-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                      <span class="text-sm font-medium">Technical Drawings.dwg</span>
+                    </div>
+                    <button class="px-3 py-1 text-sm text-black bg-white border border-gray-200 rounded-lg hover:bg-gray-50">View</button>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-white p-6 rounded-lg border border-gray-100 shadow-sm">
+                <h3 class="text-lg font-semibold mb-4">Recent Activities</h3>
+                <div class="space-y-4">
+                  <div class="flex items-center space-x-4">
+                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span class="text-sm">Updated project specifications for Tower A1</span>
+                    <span class="text-xs text-gray-500">2 hours ago</span>
+                  </div>
+                  <div class="flex items-center space-x-4">
+                    <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    <span class="text-sm">New technical drawing uploaded</span>
+                    <span class="text-xs text-gray-500">5 hours ago</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `
+        },
+        tender_registration: {
+          title: 'Tender Registration',
+          content: `
+            <div class="space-y-6">
+              <div class="bg-white p-6 rounded-lg border border-gray-100 shadow-sm">
+                <h3 class="text-lg font-semibold mb-4">Active Tenders</h3>
+                <div class="overflow-x-auto">
+                  <table class="min-w-full divide-y divide-gray-100">
+                    <thead>
+                      <tr class="bg-gray-50">
+                        <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Tender ID</th>
+                        <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Project</th>
+                        <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Deadline</th>
+                        <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100">
+                      <tr class="hover:bg-gray-50">
+                        <td class="px-6 py-4 text-sm">TEN-2023-001</td>
+                        <td class="px-6 py-4 text-sm">Commercial Complex</td>
+                        <td class="px-6 py-4 text-sm">Dec 15, 2023</td>
+                        <td class="px-6 py-4">
+                          <span class="px-2 py-1 text-xs font-medium text-green-700 bg-green-100 rounded-full">Open</span>
+                        </td>
+                      </tr>
+                      <tr class="hover:bg-gray-50">
+                        <td class="px-6 py-4 text-sm">TEN-2023-002</td>
+                        <td class="px-6 py-4 text-sm">Residential Tower</td>
+                        <td class="px-6 py-4 text-sm">Dec 20, 2023</td>
+                        <td class="px-6 py-4">
+                          <span class="px-2 py-1 text-xs font-medium text-yellow-700 bg-yellow-100 rounded-full">Draft</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="flex space-x-4">
+                <button class="px-4 py-2 text-white bg-black rounded-lg hover:bg-gray-900">New Tender</button>
+                <button class="px-4 py-2 text-black bg-white border border-gray-200 rounded-lg hover:bg-gray-50">Import</button>
+              </div>
+            </div>
+          `
+        }
+      };
+
+      // Function to show module content
+      function showModule(moduleId) {
+        // Update header title
+        document.getElementById('page-title').textContent = moduleContent[moduleId]?.title || moduleId;
+        
+        // Update active state in sidebar
+        document.querySelectorAll('.sidebar-link').forEach(link => {
+          if (link.getAttribute('data-module') === moduleId) {
+            link.classList.add('bg-white', 'text-black');
+            link.classList.remove('text-gray-300', 'hover:bg-gray-800');
+          } else {
+            link.classList.remove('bg-white', 'text-black');
+            link.classList.add('text-gray-300', 'hover:bg-gray-800');
+          }
+        });
+
+        // Update main content
+        const mainContent = document.getElementById('main-content');
+        if (moduleId === 'dashboard') {
+          mainContent.innerHTML = document.getElementById('dashboard-content').innerHTML;
+        } else {
+          mainContent.innerHTML = moduleContent[moduleId]?.content || `
+            <div class="bg-white p-6 rounded-lg border border-gray-100 shadow-sm">
+              <h3 class="text-lg font-semibold mb-4">${moduleContent[moduleId]?.title || moduleId}</h3>
+              <p class="text-gray-600">This module is under development.</p>
+            </div>
+          `;
+        }
+      }
+
+      // Initialize when the page loads
+      document.addEventListener('DOMContentLoaded', () => {
+        showModule('dashboard');
+      });
+    </script>
+  </head>
+  <body class="bg-gray-50">
+    <div class="min-h-screen flex">
+      <!-- Sidebar -->
+      <aside class="w-64 bg-black text-white fixed h-full overflow-y-auto">
+        <div class="p-6">
+          <h1 class="text-xl font-bold tracking-tight">Construction ERP</h1>
+        </div>
+        <nav class="mt-6">
+          <div class="px-4 space-y-1">
+            <a href="#" onclick="showModule('dashboard')" data-module="dashboard" class="sidebar-link flex items-center px-4 py-3 text-sm font-medium rounded-lg">
+              Dashboard
+            </a>
+            <a href="#" onclick="showModule('technical_office')" data-module="technical_office" class="sidebar-link flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:bg-gray-800 rounded-lg">
+              Technical Office
+            </a>
+            <a href="#" onclick="showModule('tender_registration')" data-module="tender_registration" class="sidebar-link flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:bg-gray-800 rounded-lg">
+              Tender Registration
+            </a>
+            <a href="#" onclick="showModule('boq_analysis')" data-module="boq_analysis" class="sidebar-link flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:bg-gray-800 rounded-lg">
+              BoQ Analysis
+            </a>
+            <a href="#" onclick="showModule('quotations')" data-module="quotations" class="sidebar-link flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:bg-gray-800 rounded-lg">
+              Quotations
+            </a>
+            <a href="#" onclick="showModule('contract_management')" data-module="contract_management" class="sidebar-link flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:bg-gray-800 rounded-lg">
+              Contract Management
+            </a>
+            <a href="#" onclick="showModule('project_implementation')" data-module="project_implementation" class="sidebar-link flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:bg-gray-800 rounded-lg">
+              Project Implementation
+            </a>
+            <a href="#" onclick="showModule('completion_rates')" data-module="completion_rates" class="sidebar-link flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:bg-gray-800 rounded-lg">
+              Completion Rates
+            </a>
+            <a href="#" onclick="showModule('subcontractor')" data-module="subcontractor" class="sidebar-link flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:bg-gray-800 rounded-lg">
+              Subcontractor
+            </a>
+            <a href="#" onclick="showModule('procurement')" data-module="procurement" class="sidebar-link flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:bg-gray-800 rounded-lg">
+              Procurement
+            </a>
+            <a href="#" onclick="showModule('inventory')" data-module="inventory" class="sidebar-link flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:bg-gray-800 rounded-lg">
+              Inventory
+            </a>
+            <a href="#" onclick="showModule('financial')" data-module="financial" class="sidebar-link flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:bg-gray-800 rounded-lg">
+              Financial
+            </a>
+            <a href="#" onclick="showModule('time_labor')" data-module="time_labor" class="sidebar-link flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:bg-gray-800 rounded-lg">
+              Time & Labor
+            </a>
+            <a href="#" onclick="showModule('mechanism')" data-module="mechanism" class="sidebar-link flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:bg-gray-800 rounded-lg">
+              Mechanism
+            </a>
+          </div>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="flex-1 ml-64">
+        <!-- Header -->
+        <header class="bg-white border-b border-gray-200 fixed w-full z-10" style="left: 16rem; right: 0;">
+          <div class="px-6 py-4 flex items-center justify-between">
+            <h2 id="page-title" class="text-xl font-semibold text-black">Dashboard</h2>
+            <div class="flex items-center space-x-4">
+              <button class="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors duration-200">
+                New Project
+              </button>
+              <div class="flex items-center space-x-2">
+                <button class="p-2 hover:bg-gray-100 rounded-full">
+                  <svg class="w-6 h-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                  </svg>
+                </button>
+                <button class="p-2 hover:bg-gray-100 rounded-full">
+                  <svg class="w-6 h-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Page Content -->
+        <main class="p-6 mt-20">
+          <!-- Dashboard Content Template -->
+          <template id="dashboard-content">
+            <!-- Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+              <div class="bg-white p-6 rounded-lg border border-gray-100 shadow-sm">
+                <div class="flex justify-between items-center mb-4">
+                  <div class="p-2 bg-black bg-opacity-5 rounded-lg">
+                    <svg class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                    </svg>
+                  </div>
+                  <span class="text-sm font-medium text-green-600">+2.5%</span>
+                </div>
+                <h3 class="text-sm font-medium text-gray-600">Active Projects</h3>
+                <p class="mt-2 text-3xl font-bold text-black">12</p>
+              </div>
+
+              <div class="bg-white p-6 rounded-lg border border-gray-100 shadow-sm">
+                <div class="flex justify-between items-center mb-4">
+                  <div class="p-2 bg-black bg-opacity-5 rounded-lg">
+                    <svg class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                    </svg>
+                  </div>
+                  <span class="text-sm font-medium text-green-600">+1.2%</span>
+                </div>
+                <h3 class="text-sm font-medium text-gray-600">Pending Tenders</h3>
+                <p class="mt-2 text-3xl font-bold text-black">8</p>
+              </div>
+
+              <div class="bg-white p-6 rounded-lg border border-gray-100 shadow-sm">
+                <div class="flex justify-between items-center mb-4">
+                  <div class="p-2 bg-black bg-opacity-5 rounded-lg">
+                    <svg class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <span class="text-sm font-medium text-green-600">+3.1%</span>
+                </div>
+                <h3 class="text-sm font-medium text-gray-600">Revenue (YTD)</h3>
+                <p class="mt-2 text-3xl font-bold text-black">$2.4M</p>
+              </div>
+
+              <div class="bg-white p-6 rounded-lg border border-gray-100 shadow-sm">
+                <div class="flex justify-between items-center mb-4">
+                  <div class="p-2 bg-black bg-opacity-5 rounded-lg">
+                    <svg class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </div>
+                  <span class="text-sm font-medium text-yellow-600">-0.5%</span>
+                </div>
+                <h3 class="text-sm font-medium text-gray-600">Active Teams</h3>
+                <p class="mt-2 text-3xl font-bold text-black">15</p>
+              </div>
+            </div>
+
+            <!-- Projects Table -->
+            <div class="bg-white rounded-lg border border-gray-100 shadow-sm">
+              <div class="px-6 py-4 border-b border-gray-100">
+                <h3 class="text-lg font-semibold text-black">Recent Projects</h3>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-100">
+                  <thead>
+                    <tr class="bg-gray-50">
+                      <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Project</th>
+                      <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Status</th>
+                      <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Progress</th>
+                      <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Team</th>
+                      <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Deadline</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-100">
+                    <tr class="hover:bg-gray-50 transition-colors duration-200">
+                      <td class="px-6 py-4 text-sm font-medium text-black">Commercial Tower A1</td>
+                      <td class="px-6 py-4">
+                        <span class="text-sm font-medium text-green-600">In Progress</span>
+                      </td>
+                      <td class="px-6 py-4">
+                        <div class="flex items-center">
+                          <div class="w-full bg-gray-100 rounded-full h-1.5 mr-3">
+                            <div class="bg-black h-1.5 rounded-full" style="width: 65%"></div>
+                          </div>
+                          <span class="text-sm font-medium text-gray-600">65%</span>
+                        </div>
+                      </td>
+                      <td class="px-6 py-4 text-sm text-gray-600">Team Alpha</td>
+                      <td class="px-6 py-4 text-sm text-gray-600">Dec 31, 2023</td>
+                    </tr>
+                    <tr class="hover:bg-gray-50 transition-colors duration-200">
+                      <td class="px-6 py-4 text-sm font-medium text-black">Residential Complex B2</td>
+                      <td class="px-6 py-4">
+                        <span class="text-sm font-medium text-blue-600">Planning</span>
+                      </td>
+                      <td class="px-6 py-4">
+                        <div class="flex items-center">
+                          <div class="w-full bg-gray-100 rounded-full h-1.5 mr-3">
+                            <div class="bg-black h-1.5 rounded-full" style="width: 15%"></div>
+                          </div>
+                          <span class="text-sm font-medium text-gray-600">15%</span>
+                        </div>
+                      </td>
+                      <td class="px-6 py-4 text-sm text-gray-600">Team Beta</td>
+                      <td class="px-6 py-4 text-sm text-gray-600">Mar 15, 2024</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </template>
+
+          <!-- Dynamic Content Container -->
+          <div id="main-content"></div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
